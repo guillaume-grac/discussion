@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-image: url(../images/bg4.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+}
+
+
+/* Header */
+
+header{
+    font-family: 'Major Mono Display', monospace;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1%;
+}
+
+header a{
+    transition: all 0.3s ease 0.3s;
+    color: rgba(82, 204, 153);
+    text-decoration: none;
+}
+
+header a:hover{
+    color: white;
+}
+
+
+
+li a{
+    transition: all 0.2s ease 0.2s;
+    color: white;
+    text-decoration: none;
+}
+
+li a:hover{
+    color: rgb(82, 204, 153);
+}
+
+/* Main */
+
+.loginBox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    min-height: 20%;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 2%;
+    box-sizing: border-box;
+}
+
+.user{
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 1%;
+}
+
+h1{
+    font-family: 'Major Mono Display', monospace; 
+    margin: 0;
+    padding: 0 0 20px;
+    color: rgb(82, 204, 153);
+    text-align: center;
+}
+
+.loginBox input{
+    width: 100%;
+    margin-bottom: 4%;
+}
+
+.loginBox input[type="text"],
+.loginBox input[type="password"]{ 
+    border: none;
+    border-bottom: 2px solid #262626;
+    outline: none;
+    height: 50px;
+    color: rgb(255, 255, 255);
+    background: transparent;
+    font-size: 20px;
+    padding-left: 2%;
+    box-sizing: border-box;
+    transition: all 0.3s ease 0.3s;
+}
+
+.loginBox input[type="text"]:hover,
+.loginBox input[type="password"]:hover{
+    color: rgb(82, 204, 153);
+}
+
+.loginBox input[type="text"]:focus,
+.loginBox input[type="password"]:focus{
+    border-bottom: 2px solid rgb(82, 204, 153);
+    color: rgb(82, 204, 153);
+}
+
+.inputBox{
+    position: relative;
+}
+
+.loginBox input[type="submit"]{
+    font-weight: bold;
+    font-family: 'Major Mono Display', monospace; 
+    border: none;
+    outline: none;
+    height: 40px;
+    font-size: 16px;
+    background: rgb(82, 204, 153);
+    color: rgb(0, 0, 0);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#label-style{
+    color: rgb(82, 204, 153);
+    font-family: 'Major Mono Display', monospace;
+    font-weight: bold;
+}
+
+/* Footer */ 
+
+footer{
+    font-family: 'Major Mono Display', monospace;  
+    color: black;
+    position: absolute; bottom: 0; left: 0; right: 0;
+}
+
+footer p{
+    color: black;
+}
