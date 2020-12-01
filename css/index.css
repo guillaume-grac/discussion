@@ -110,6 +110,32 @@ li a:hover{
     width: 60%;
 }
 
+.arrow{
+    
+    position: absolute;
+    top: calc(90% - 3em);
+    left: calc(57% - 3em);
+}
+  
+@keyframes do-levitation {
+    0% {
+      transform: translate(0, 0); 
+    }
+    100% {
+      transform: translate(0, 0.5em);
+    }
+}
+  
+.levitate{
+    animation: do-levitation 1.2s alternate ease-in-out infinite;
+}
+
+.fleche{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /* Footer */ 
 
 footer{

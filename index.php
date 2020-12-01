@@ -32,7 +32,9 @@
             un gout prononcé pour les voyages extrêmes dans les coins les plus froids de la planète !<br><br>
             Inscrivez vous dès maintenant !</p><br>
             <p>Ou connectez vous pour rejoindre directement le salon de discussion</p>
-            <a class="down" href="#main-cont"><i class="fas fa-angle-down"></i></a> 
+            <section class="fleche container">
+                <a class="down" href="#main-cont"><i class="fas fa-angle-down arrow levitate"></i></a> 
+            </section>
         </section>
         <section id="main-cont" class="main-content container-fluid">
             <section class="card" style="width: 18rem;">
