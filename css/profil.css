@@ -53,7 +53,7 @@ li a:hover{
 
 .loginBox{
     position: absolute;
-    top: 50%;
+    top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 30%;
@@ -129,6 +129,19 @@ h1{
     color: rgb(82, 204, 153);
     font-family: 'Major Mono Display', monospace;
     font-weight: bold;
+}
+
+.alert{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 16%;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+.seal{;
+    width: 25%;
 }
 
 /* Footer */ 

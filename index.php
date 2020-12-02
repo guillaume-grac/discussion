@@ -1,3 +1,13 @@
+<?php
+    session_start();
+
+     if (isset($_POST['logout'])){
+
+        session_destroy();
+        header('location: php/connexion.php');
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,13 +23,14 @@
             <a class="navbar-brand" href="index.php"><b>POLAR CHAT</b></a>
             <section class="collapse navbar-collapse" id="navbarSupportedContent-555">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="php/connexion.php">| <i class="fab fa-connectdevelop"></i> Connexion</a></li>
-                    <li class="nav-item"><a class="nav-link" href="php/inscription.php">| <i class="far fa-plus-square"></i> Inscription</a></li>
+                <?php if (isset($_SESSION['login'])){ echo '<li class="nav-item"><a class="nav-link">| Bonjour <i class="fas fa-hiking"></i> ' . $_SESSION['login'] . '</a></li>';}?>
+                    <?php if (!isset($_SESSION['login'])){ echo '<li class="nav-item"><a class="nav-link" href="php/connexion.php">| <i class="fab fa-connectdevelop"></i> Connexion </a></li>';}?>
+                    <?php if (!isset($_SESSION['login'])){ echo '<li class="nav-item"><a class="nav-link" href="php/inscription.php">| <i class="far fa-plus-square"></i> Inscription </a></li>';}?>
                     <li class="nav-item"><a class="nav-link" href="php/profil.php">| <i class="far fa-address-card"></i> Profil</a></li>
                     <li class="nav-item"><a class="nav-link" href="php/discussion.php">| <i class="fas fa-users"></i> Discussion</a></li>
                 </ul>
-                <ul class="navbar-nav ml-auto nav-flex-icons">
-                    <li class="nav-item avatar"><a class="nav-link p-0" href="index.php"><img title="Accueil" src="images/fly.png" class="rounded-circle z-depth-0" alt="avatar image" height="50"></a></li>
+                <ul class="navbar-nav ml-auto">
+                    <?php if (isset($_SESSION['login'])){ echo '<li><form method="POST" action="index.php"><button type="submit" class="btn btn-info" name="logout" title="Déconnexion"><i class="fas fa-sign-out-alt"></i></button></form></li>';}?>
                 </ul>
             </section>
         </nav>
@@ -58,7 +69,15 @@
                     <h2 class="card-title"><span class="title">Notre but</span></h2>
                     <h3 class="card-subtitle mb-2 text-muted">Lequel ?</h3>
                     <p class="card-text">Tout simplement l'échange et le partage sur une passion commune, ainsi que l'uinion et l'entraide.</p>
-                    <img id="map" src="images/map.webp" alt="jumelles">
+                    <img id="map" src="images/map.webp" alt="map">
+                </section>
+            </section>
+            <section class="card" style="width: 18rem;">
+                <section class="card-body">
+                    <h2 class="card-title"><span class="title">La sauvegarde</span></h2>
+                    <h3 class="card-subtitle mb-2 text-muted">Préservons la !</h3>
+                    <p class="card-text">Nous accordons énormément d'importance à la sauvegarde de la faune et la flore, nous en faisons une de nos prioritées. Polar Chat encourage les échanges et entraides vis a vis de la protection de la nature. </p>
+                    <img id="bear" src="images/bear.png" alt="bear">
                 </section>
             </section>
         </section>
