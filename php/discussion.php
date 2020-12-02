@@ -47,18 +47,25 @@
     <main>
         <section class="chat-scroll">
             <?php 
-                $check_chats = mysqli_query($db,"SELECT m.message, u.login, m.date FROM utilisateurs AS u INNER JOIN messages AS m WHERE m.id_utilisateur = u.id ORDER BY m.date DESC");
+                if (isset($_SESSION['login'])){ 
+                    date_default_timezone_set('UTC');
 
-                while($chats_list = mysqli_fetch_assoc($check_chats)){
-                    echo 
-                    "<table>
-                        <tr>
-                            <td>Posté le<b> " . htmlspecialchars($chats_list['date']) . " </b>par <i><b><span class='nom-com'>" . htmlspecialchars($chats_list['login']) . "</b></i></td>
-                        </tr><br />
-                        <tr>
-                            <td>" . htmlspecialchars($chats_list['message']) . "</td>
-                        </tr>
-                    </table>";
+                    $check_chats = mysqli_query($db,"SELECT m.message, u.login, m.date FROM utilisateurs AS u INNER JOIN messages AS m WHERE m.id_utilisateur = u.id");
+
+                    while($chats_list = mysqli_fetch_assoc($check_chats)){
+                        echo 
+                        "<table>
+                            <tr>
+                                <td>Posté le<b> " . htmlspecialchars($chats_list['date']) . " </b>par <i><b><span class='nom-com'>" . htmlspecialchars($chats_list['login']) . "</b></i></td>
+                            </tr><br />
+                            <tr>
+                                <td>" . htmlspecialchars($chats_list['message']) . "</td>
+                            </tr>
+                        </table>";
+                    }
+                }
+                else{
+                    echo '<img class="seal" src="../images/seal.gif" alt="Seal">';
                 }
             ?>
         </section>

@@ -77,9 +77,11 @@ li a:hover{
     margin-left: 10%;
     margin-right: 10%;
     border-radius: 20px;
-    overflow-y: scroll;
+    overflow-y: scroll; 
     border: solid rgba(0, 0, 0, 0.8) 2px;
     color: black;
+    scrollbar-color: rgba(82, 204, 153) black;
+    scrollbar-width: auto;
 }
 
 /* Footer */ 
