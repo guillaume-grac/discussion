@@ -60,7 +60,7 @@ li a:hover{
     min-height: 20%;
     background: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
-    padding: 2%;
+    padding: 1%;
     box-sizing: border-box;
 }
 
@@ -140,9 +140,22 @@ h1{
     margin-right: 35%;
 }
 
-.seal{;
+.seal{
     width: 25%;
 }
+
+.bouton{
+    font-family: 'Major Mono Display', monospace; 
+    border-radius: 20px;
+    margin-left: 30%;
+}
+
+.alert-css{
+    margin-top: 18%;
+    margin-left: 5%;
+    margin-right: 70%;
+}
+
 
 /* Footer */ 
 

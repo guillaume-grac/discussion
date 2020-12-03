@@ -32,8 +32,8 @@
     <main>
         <?php   
             if (isset($_POST['connexion'])){
-                $identifiant = ($_POST['login']);
-                $password = ($_POST['password']);
+                $identifiant = mysqli_real_escape_string($db,htmlspecialchars(trim($_POST['login'])));
+                $password = mysqli_real_escape_string($db,htmlspecialchars(trim($_POST['password'])));
                 
                 $error_log = '<section class="alert alert-danger text-center" role="alert"><b>Veuillez réessayer !</b> Mot de passe incorrect.</section>';
         
@@ -80,7 +80,7 @@
                         <label id="label-style" for="password">Votre mot de passe :</label>
                         <input type="password" name="password" placeholder="Votre Mot de Passe" required>
                     </section>
-                    <input type="submit" name="connexion" value="C'est parti !">
+                    <button type="submit" name="connexion" class="bouton btn btn-dark">Connexion <i class="fas fa-check-square"></i></button>
                 </form>
             </section>
         </section>       

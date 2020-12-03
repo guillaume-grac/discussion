@@ -45,12 +45,12 @@
         </nav>
     </header>
     <main>
-        <section class="chat-scroll">
+        <section class="chat-scroll scrollbar-dusty-grass">
             <?php 
                 if (isset($_SESSION['login'])){ 
                     date_default_timezone_set('UTC');
 
-                    $check_chats = mysqli_query($db,"SELECT m.message, u.login, m.date FROM utilisateurs AS u INNER JOIN messages AS m WHERE m.id_utilisateur = u.id");
+                    $check_chats = mysqli_query($db,"SELECT m.message, u.login, m.date FROM utilisateurs AS u INNER JOIN messages AS m WHERE m.id_utilisateur = u.id ORDER BY m.message ASC");
 
                     while($chats_list = mysqli_fetch_assoc($check_chats)){
                         echo 
@@ -76,9 +76,9 @@
                     '<section>
                         <form method="post" action="discussion.php"> 
                             <section class="form-group">
-                                <textarea class="form-control" name="chat" rows="5">Discutez ici.</textarea> 
+                                <textarea maxlenght="150" class="form-control" name="chat" rows="3">Discutez ici. (150 caractères max.)</textarea> 
                             </section>
-                            <button type="submit" name="envoyer" class="bouton btn btn-dark">Envoyer <i class="fas fa-paper-plane"></i></button><br>
+                            <button type="submit" name="envoyer" class="bouton btn btn-dark">Envoyer <i class="fas fa-paper-plane"></i></button>
                         </form>
                     </section>';
                 }       
@@ -90,7 +90,7 @@
                 date_default_timezone_set('UTC');
 
                 if (isset($_POST['envoyer'])){
-                    $chats = htmlspecialchars($_POST['chat'], ENT_QUOTES);
+                    $chats = mysqli_real_escape_string($db,htmlspecialchars(trim($_POST['chat'], ENT_QUOTES)));
                     $id_user = $_SESSION['id'];
                     $date_chat = date("Y-m-j H:i:s");
                     $create_chat = mysqli_query($db,"INSERT INTO messages(message, id_utilisateur, date) VALUES ('" . $chats . "', '" . $id_user . "', '" . $date_chat . "')");

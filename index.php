@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 </head>
-<body>
+<body class="scrollbar-dusty-grass">
     <header>
         <nav class="mb-1 navbar navbar-expand-lg lighten-1">
             <a class="navbar-brand" href="index.php"><b>POLAR CHAT</b></a>
@@ -43,7 +43,7 @@
             un gout prononcé pour les voyages extrêmes dans les coins les plus froids de la planète !<br><br>
             Inscrivez vous dès maintenant !</p><br>
             <p>Ou connectez vous pour rejoindre directement le salon de discussion</p>
-            <section class="fleche container">
+            <section class="fleche">
                 <a class="down" href="#main-cont"><i class="fas fa-angle-down arrow levitate"></i></a> 
             </section>
         </section>

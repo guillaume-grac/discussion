@@ -50,40 +50,40 @@
                         <label id="label-style" for="confirm-password">Votre mot de passe :</label>
                         <input type="password" name="confirm-password" placeholder="Retapez votre Mot de Passe" required>
                     </section> 
-                    <input type="submit" name="register" value="S'inscrire">
+                    <button type="submit" name="register" class="bouton btn btn-dark">S'inscrire <i class="fas fa-user-plus"></i></button>
                 </form>
-                <?php
-
-                    if (isset($_POST['register'])) {
-
-                        $login=$_POST['login'];
-                        $password=$_POST['password'];
-                        $hash = password_hash($password, PASSWORD_DEFAULT);
-                        $confirm_password=$_POST['confirm-password'];
-                        $error_log = '<section class=" alert-css text-center alert alert-danger alert-dismissible fade show">
-                        <strong>Mauvais mot de passe !</strong> Les mots de passe ne sont pas identiques.</section>';      
-
-                        if($password === $confirm_password){
-
-                            $requete = "INSERT INTO utilisateurs (login, password) VALUES ('$login','$hash')";
-                            $verification = mysqli_query($db, "SELECT login FROM utilisateurs WHERE login = '".$_POST['login']."'");
-
-                            if(mysqli_num_rows($verification)) {
-                            echo("Login \"". $_POST['login'] . "\" est déjà utilisé, veuillez en choisir un autre :-)");
-                            }
-
-                            mysqli_query($db,$requete);
-
-                            header('Location: connexion.php');
-                            exit();
-                        }
-                        else{
-                        echo($error_log);
-                        }
-                    }  
-                ?>
             </section>
-        </section>     
+        </section>
+        <?php
+
+            if (isset($_POST['register'])) {
+
+                $login= mysqli_real_escape_string($db,htmlspecialchars(trim($_POST['login'])));
+                $password= mysqli_real_escape_string($db,htmlspecialchars(trim($_POST['password'])));
+                $hash = password_hash($password, PASSWORD_DEFAULT);
+                $confirm_password= mysqli_real_escape_string($db,htmlspecialchars(trim($_POST['confirm-password'])));
+                $error_log = '<section class=" alert-css alert alert-danger text-center alert-dismissible fade show">
+                <strong>Echec</strong> Mauvais mot de passe</section>';      
+
+                if($password === $confirm_password){
+
+                    $requete = "INSERT INTO utilisateurs (login, password) VALUES ('$login','$hash')";
+                    $verification = mysqli_query($db, "SELECT login FROM utilisateurs WHERE login = '".$_POST['login']."'");
+
+                    if(mysqli_num_rows($verification)) {
+                    echo("Login \"". $_POST['login'] . "\" est déjà utilisé, veuillez en choisir un autre :-)");
+                    }
+
+                    mysqli_query($db,$requete);
+
+                    header('Location: connexion.php');
+                    exit();
+                }
+                else{
+                echo($error_log);
+                }
+            }  
+        ?>    
     </main>
     <footer >
         <section class="text-center py-3">

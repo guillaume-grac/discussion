@@ -117,7 +117,7 @@ h1{
     border: none;
     outline: none;
     height: 40px;
-    font-size: 16px;
+    font-size: 14px;
     background: rgb(82, 204, 153);
     color: rgb(0, 0, 0);
     border-radius: 20px;
@@ -130,6 +130,17 @@ h1{
     font-weight: bold;
 }
 
+.bouton{
+    font-family: 'Major Mono Display', monospace; 
+    border-radius: 20px;
+    margin-left: 28%;
+}
+
+.alert-css{
+    margin-top: 18%;
+    margin-left: 5%;
+    margin-right: 70%;
+}
 
 /* Footer */ 
 

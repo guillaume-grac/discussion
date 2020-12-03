@@ -44,9 +44,9 @@
                     if(isset($_POST['Nlogin']) && $_POST['Npassword'] === $_POST['NCpassword']){
 
                         
-                        $login=$_POST['Nlogin'];
-                        $password=$_POST['Npassword'];
-                        $confirmpassword=$_POST['NCpassword'];
+                        $login= mysqli_real_escape_string($db,htmlspecialchars(trim($_POST['Nlogin'])));
+                        $password= mysqli_real_escape_string($db,htmlspecialchars(trim($_POST['Npassword'])));
+                        $confirmpassword= mysqli_real_escape_string($db,htmlspecialchars(trim($_POST['NCpassword'])));
                         $id=$_SESSION['id'];
                         
                         $hash = password_hash($password, PASSWORD_DEFAULT);
@@ -57,7 +57,7 @@
                         $_SESSION['login']=$login;
                         $_SESSION['password']=$password;
                         $_SESSION['id']=$id;
-                        $modif = '<p class="alert alert-success text-center" role="alert"><b>Modification réussie</b></p>';
+                        $modif = '<p class="alert alert-css alert-success text-center" role="alert"><b>Modification réussie</b></p>';
 
                         if($update){
                             echo $modif;
@@ -65,7 +65,7 @@
                     }
 
                     if($_POST['Npassword'] != $_POST['NCpassword']){
-                        echo '<p class="alert alert-danger text-center" role="alert"><b>Echec</b> Mauvais mot de passe</p>';
+                        echo '<p class="alert alert-css alert-danger text-center" role="alert"><b>Echec</b> Mauvais mot de passe</p>';
                     }
                 }
             }
@@ -73,7 +73,7 @@
                 echo 
                 '<section class="container-fluid">
                 <section class="loginBox">
-                    <h1>Vous pouvez modifier votre profil :</h1>
+                    <h1>Modifier votre profil :</h1>
                     <form method="post">
                         <section class="inputBox">
                             <label id="label-style" for="Nlogin">Entrez votre nouveau login :</label>
@@ -84,10 +84,10 @@
                             <input type="password" name="Npassword" placeholder="Votre nouveau Mot de Passe" required>
                         </section>
                         <section class="inputBox">
-                        <label id="label-style" for="NCpassword">Retapez votre nouveau login :</label>
+                        <label id="label-style" for="NCpassword">Retapez votre nouveau mot de passe :</label>
                             <input type="password" name="NCpassword" placeholder="Retapez votre nouveau Mot de Passe" required>
                         </section>
-                        <input type="submit" name="update" value="C\'est parti !">
+                        <button type="submit" name="update" class="bouton btn btn-dark">Confirmer <i class="fas fa-check"></i></button>
                     </form>
                 </section>
             </section>';

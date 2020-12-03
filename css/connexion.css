@@ -18,6 +18,12 @@ body{
   
 }
 
+.bouton{
+    font-family: 'Major Mono Display', monospace; 
+    border-radius: 20px;
+    margin-left: 28%;
+}
+
 
 /* Header */
 
@@ -62,12 +68,6 @@ li a:hover{
     border-radius: 10px;
     padding: 2%;
     box-sizing: border-box;
-}
-
-.user{
-    margin: 0 auto;
-    display: block;
-    margin-bottom: 1%;
 }
 
 h1{
