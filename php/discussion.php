@@ -50,7 +50,7 @@
                 if (isset($_SESSION['login'])){ 
                     date_default_timezone_set('UTC');
 
-                    $check_chats = mysqli_query($db,"SELECT m.message, u.login, m.date FROM utilisateurs AS u INNER JOIN messages AS m WHERE m.id_utilisateur = u.id ORDER BY m.message ASC");
+                    $check_chats = mysqli_query($db,"SELECT m.message, u.login, m.date FROM utilisateurs AS u INNER JOIN messages AS m WHERE m.id_utilisateur = u.id");
 
                     while($chats_list = mysqli_fetch_assoc($check_chats)){
                         echo 

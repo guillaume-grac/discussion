@@ -57,7 +57,7 @@
                         $_SESSION['login']=$login;
                         $_SESSION['password']=$password;
                         $_SESSION['id']=$id;
-                        $modif = '<p class="alert alert-css alert-success text-center" role="alert"><b>Modification réussie</b></p>';
+                        $modif = '<p class="alert-css alert-success text-center" role="alert"><b>Modification réussie</b></p>';
 
                         if($update){
                             echo $modif;
@@ -65,7 +65,7 @@
                     }
 
                     if($_POST['Npassword'] != $_POST['NCpassword']){
-                        echo '<p class="alert alert-css alert-danger text-center" role="alert"><b>Echec</b> Mauvais mot de passe</p>';
+                        echo '<p class="alert-css alert-danger text-center" role="alert"><b>Echec</b> Les Mots de passe ne sont pas identiques.</p>';
                     }
                 }
             }

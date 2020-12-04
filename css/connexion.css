@@ -112,19 +112,6 @@ h1{
     position: relative;
 }
 
-.loginBox input[type="submit"]{
-    font-weight: bold;
-    font-family: 'Major Mono Display', monospace; 
-    border: none;
-    outline: none;
-    height: 40px;
-    font-size: 16px;
-    background: rgb(82, 204, 153);
-    color: rgb(0, 0, 0);
-    border-radius: 20px;
-    cursor: pointer;
-}
-
 #label-style{
     color: rgb(82, 204, 153);
     font-family: 'Major Mono Display', monospace;

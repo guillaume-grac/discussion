@@ -47,7 +47,7 @@
                         <input type="password" name="password" placeholder="Votre Mot de Passe" required>
                     </section>
                     <section class="inputBox">
-                        <label id="label-style" for="confirm-password">Votre mot de passe :</label>
+                        <label id="label-style" for="confirm-password">Retapez votre mot de passe :</label>
                         <input type="password" name="confirm-password" placeholder="Retapez votre Mot de Passe" required>
                     </section> 
                     <button type="submit" name="register" class="bouton btn btn-dark">S'inscrire <i class="fas fa-user-plus"></i></button>
@@ -62,25 +62,27 @@
                 $password= mysqli_real_escape_string($db,htmlspecialchars(trim($_POST['password'])));
                 $hash = password_hash($password, PASSWORD_DEFAULT);
                 $confirm_password= mysqli_real_escape_string($db,htmlspecialchars(trim($_POST['confirm-password'])));
-                $error_log = '<section class=" alert-css alert alert-danger text-center alert-dismissible fade show">
-                <strong>Echec</strong> Mauvais mot de passe</section>';      
+                $error_log = '<section class="alert alert-danger text-center alert-dismissible fade show">
+                <strong>Echec</strong> Mauvais mot de passe ou Login déjà utilisé !</section>';
+                $verification = mysqli_query($db, "SELECT login FROM utilisateurs WHERE login = '".$_POST['login']."'");
+                
+                if(mysqli_num_rows($verification)== $_POST['login']) {
 
-                if($password === $confirm_password){
+                    if($password === $confirm_password){
 
-                    $requete = "INSERT INTO utilisateurs (login, password) VALUES ('$login','$hash')";
-                    $verification = mysqli_query($db, "SELECT login FROM utilisateurs WHERE login = '".$_POST['login']."'");
+                        $requete = "INSERT INTO utilisateurs (login, password) VALUES ('$login','$hash')";
 
-                    if(mysqli_num_rows($verification)) {
-                    echo("Login \"". $_POST['login'] . "\" est déjà utilisé, veuillez en choisir un autre :-)");
+                        mysqli_query($db,$requete);
+
+                        header('Location: connexion.php');
+                        exit();
                     }
-
-                    mysqli_query($db,$requete);
-
-                    header('Location: connexion.php');
-                    exit();
+                    else{
+                    echo($error_log);
+                    }
                 }
                 else{
-                echo($error_log);
+                    echo($error_log);
                 }
             }  
         ?>    

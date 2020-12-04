@@ -14,8 +14,7 @@ body{
     background-image: url(../images/bg3.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: cover;
-  
+    background-size: cover; 
 }
 
 
@@ -53,7 +52,7 @@ li a:hover{
 
 .loginBox{
     position: absolute;
-    top: 50%;
+    top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 30%;
@@ -134,12 +133,6 @@ h1{
     font-family: 'Major Mono Display', monospace; 
     border-radius: 20px;
     margin-left: 28%;
-}
-
-.alert-css{
-    margin-top: 18%;
-    margin-left: 5%;
-    margin-right: 70%;
 }
 
 /* Footer */ 

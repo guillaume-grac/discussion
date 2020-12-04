@@ -75,7 +75,7 @@
             <section class="card" style="width: 18rem;">
                 <section class="card-body">
                     <h2 class="card-title"><span class="title">La sauvegarde</span></h2>
-                    <h3 class="card-subtitle mb-2 text-muted">Préservons la !</h3>
+                    <h3 class="card-subtitle mb-2 text-muted">Protégeons !</h3>
                     <p class="card-text">Nous accordons énormément d'importance à la sauvegarde de la faune et la flore, nous en faisons une de nos prioritées. Polar Chat encourage les échanges et entraides vis a vis de la protection de la nature. </p>
                     <img id="bear" src="images/bear.png" alt="bear">
                 </section>
