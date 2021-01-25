@@ -9,3 +9,5 @@ Several elements of previous projects have been taken up such as creating an acc
 I was inspired by a false network of explorers and adventurers.
 
 (Please forgive my bad english)
+
+Guillaume.
